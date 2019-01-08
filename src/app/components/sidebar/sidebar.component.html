@@ -1,0 +1,69 @@
+<div class="container-fluid">
+<div class="adminoptions" style="text-align: center; margin-top:20px; padding:20px; color:white">
+    <h5>Admin options</h5>
+    <button type="button" class="btn btn-secondary" routerLink="" (click)="logOut()" style="float:right; margin-top:0px;">Logout</button>
+</div>
+
+<div class="row">
+    <div class="column">
+        <app-admin></app-admin>
+    </div>
+
+    <div class="column">
+            <h5 style="margin-top:40px; text-align: center; color:white;">->Insert game between two teams<-</h5>
+            <form style="float:left;">
+                <label for="homeTeam" style="color: white">First team name</label><br>
+                <input type="text" [(ngModel)]="homeTEAM"  name="homeTEAM" placeholder="Insert first team name..."><br> 
+        
+                <label for="guestTeam" style="color: white">Second team name</label><br>
+                <input type="text" [(ngModel)]="guestTeam" name="guestTeam" placeholder="Insert second team name..."><br>
+        
+                <input type="submit" (click)="addGame(); reloadPage();" routerLink="/admin"  value="Set game"><br><br>
+            </form>
+    </div>
+
+    <div class="column">
+    <h5 style="margin-top:40px; text-align: center; color:white;">->List of current games<-</h5>
+            <br><table class="table" style="margin-top:20px; color:white;">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Index</th>
+                            <th scope="col">Home Team</th>
+                            <th scope="col">Guest Team</th>
+                            <th scope="col">Score</th>
+                        </tr>
+                    </thead>
+                    <tbody *ngFor="let g of allgames">
+                        <tr>
+                            <th scope="row">{{g.gameId}}</th>
+                            <th scope="row">{{g.homeTeam}}</th>
+                            <th scope="row">{{g.guestTeam}}</th>
+                            <th scope="row">{{g.homeScore}}-{{g.guestScore}}</th>
+                            <button type="button" class="close" (click)="deleteGame(g.gameId); reloadPage();" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </tr>
+                    </tbody>
+                </table>
+    </div>
+    
+    <div class="column">
+            <h5 style="margin-top:40px; text-align: center; color:white;">->Set score to an existing game<-</h5>
+            <form>
+                    <label for="fname" style="color: white">First team name</label><br>
+                    <input type="text" [(ngModel)]="ht" name="ht" placeholder="Insert first team name..."><br> 
+            
+                    <label for="sname" style="color: white">Second team name</label><br>
+                    <input type="text" [(ngModel)]="gt" name="gt" placeholder="Insert second team name..."><br>
+
+                    <label for="score" style="color: white">Home Score</label>
+                    <input type="text" [(ngModel)]="homeScore" name="homeScore" placeholder="Insert score...."><br>
+                    
+                    <label for="score" style="color: white">Home Score</label>
+                    <input type="text" [(ngModel)]="guestScore" name="guestScore" placeholder="Insert score...."><br>
+            
+                    <input type="submit" routerLink="/admin" (click)="setScore(); reloadPage();" value="Set score"><br>
+            </form>
+    </div>
+</div>
+</div>

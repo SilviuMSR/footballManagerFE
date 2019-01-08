@@ -1,0 +1,13 @@
+.container-fluid {
+    background: 
+      linear-gradient(
+        rgba(0, 0, 0, 0.6),
+        rgba(0, 0, 0, 0.6)
+      ),
+      url('../assets/asdasd.png') repeat-x;
+    background-size: cover;
+    width: 100%;
+    margin:auto;
+    position: relative;
+    float: left;
+  }

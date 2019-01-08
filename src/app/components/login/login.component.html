@@ -1,0 +1,19 @@
+<div class="container-fluid">
+<div class="title"  style="text-align: center; margin-top: 50px;">
+    <h3>Welcome to login!</h3>
+</div>
+<div class="card-body">
+    <form>
+        <label for="name" style="color:white;">Coach name</label><br>
+        <input type="text" [(ngModel)]="cname" id="name" name="name" placeholder="Insert coach name..."><br> 
+
+        <label for="password" style="color:white;">Password</label><br>
+        <input type="password" [(ngModel)]="cpassword" id="password" name="password" placeholder="Insert password..."><br>
+
+        <input type="submit" (click)="LoggedIn()" value="Login"><br>
+    </form>
+</div>
+<div class="options">
+    <a routerLink="/register">You don't have an account? Create one</a>
+</div>
+</div>

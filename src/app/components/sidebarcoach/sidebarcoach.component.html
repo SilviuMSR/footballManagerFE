@@ -1,0 +1,90 @@
+<div class="adminoptions" style="text-align: center; margin-top:20px; padding:20px; color:white;">
+    <h5>Hello coach {{loggedUser.name}}</h5>
+    <h6>Your team is : {{loggedUser.teamname}}</h6>
+    <button type="button" class="btn btn-secondary" routerLink="" style="float:right; margin-top:0px;">Logout</button>
+</div>
+
+<div class="row2">
+    <div class="column2">
+            <h5 style="text-align: center; color: white;">->Insert player<-</h5>
+            <form style="float:left;">
+                <label for="playerName" style="color:white;">Player name</label><br>
+                <input type="text" [(ngModel)]="playerName" name="playerName" id="playerName"><br> 
+        
+                <label for="playerNumber" style="color:white;">Player number</label><br>
+                <input type="number" [(ngModel)]="playerNumber" name="playerNumber" id="playerNumber" ><br>
+        
+                <input type="submit" routerLink="/coach" (click)="insertPlayerToTeam(); reloadPage();" value="Add player"><br><br>
+            </form>
+    </div>
+
+    <div class="column2">
+            <h5 style="color: white; text-align: center;">->Insert player to game<-</h5>
+            <form style="float:left;">
+                <label for="fname" style="color: white">First team name</label><br>
+                <input type="text" id="fname"><br> 
+        
+                <label for="sname" style="color: white">Second team name</label><br>
+                <input type="text" id="sname"><br>
+
+                <label for="pname" style="color: white">Player name</label><br>
+                <input type="text" id="pname"><br>
+        
+                <input type="submit" routerLink="/" value="Add player to game"><br><br>
+            </form>
+    </div>
+</div>
+
+<div class="row1">
+    <div class="column">
+        <h5 style="text-align: center; color:white;">->Ranking<-</h5>
+         <app-coach></app-coach>
+    </div>
+        
+    <div class="column">
+            <h5 style="text-align: center; color:white;">->Current available players<-</h5>
+            <br><table class="table" style="color: white">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Index</th>
+                            <th scope="col">Player Name</th>
+                        </tr>
+                    
+                    </thead>
+                    <tbody *ngFor="let player of players">
+                        <tr>
+                            <th scope="row">1</th>
+                            <th scope="row">{{player.playerName}}</th>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+    </div>
+        
+    <div class="column">
+        <h5 style="text-align: center; color:white;">->Current games<-</h5>
+            <br><table class="table" style="color: white">
+                    <thead class="table-dark">
+                        <tr>
+                            <th scope="col">Index</th>
+                            <th scope="col">Home Team</th>
+                            <th scope="col">Guest Team</th>
+                        </tr>
+                    
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th scope="row">1</th>
+                            <th scope="row">AS FLACARA FAGET</th>
+                            <th scope="row">FC DUDESTII NOI</th>
+                        </tr>
+                        <tr>
+                            <th scope="row">2</th>
+                            <th scope="row">FC ARSENAL PLOIEST</th>
+                            <th scope="row">AS FLACARA FAGET</th>
+                        </tr>
+                    </tbody>
+                </table>
+    </div>
+ </div>
+    

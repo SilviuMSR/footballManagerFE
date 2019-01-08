@@ -1,0 +1,27 @@
+<div class="container-fluid">
+<div class="title"  style="text-align: center; margin-top: 50px;">
+    <h3>Welcome to register!</h3>
+</div>
+<div class="card-body">
+    <form>
+        <label for="name" style="color:white;">Coach name</label><br>
+        <input type="text" class="form-control" name="cname" #coachName="ngModel" [ngClass]="{'is-invalid':coachName.errors && coachName.touched}" [(ngModel)]="cname" required placeholder="Insert coach name...">
+        <div [hidden]="!coachName.errors?.required" class="invalid-feedback">Coach name required</div>
+
+        <label for="password" style="color:white;">Password</label><br>
+        <input type="password" [(ngModel)]="cpassword" id="password" name="password" placeholder="Insert password..."><br>
+
+        <label for="cteam" style="color:white;">Team name</label><br>
+        <input type="text" class="form-control" name="cteam" #coachTeam="ngModel" [ngClass]="{'is-invalid':coachTeam.errors && coachTeam.touched}" [(ngModel)]="cteam" required placeholder="Insert coach team...">
+        <div [hidden]="!coachTeam.errors?.required" class="invalid-feedback">Coach team name required</div>
+
+        <input type="submit" routerLink="/login" (click)="saveUserToDb()" routerLink="/login" value="Create account"><br>
+    </form>
+
+    <div class="options">
+        <a routerLink="/login">Back to login</a>
+    </div>
+</div>
+</div>
+
+
