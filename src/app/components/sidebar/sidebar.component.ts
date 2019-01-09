@@ -38,6 +38,7 @@ export class SidebarComponent implements OnInit {
       (value : any)  => {
         if(value == true) this.toastrService.success("Successfully inserted game");
         else this.toastrService.error("Game was not inserted, please check teams again");
+        this.reloadPage();
       }
     )
   }
@@ -49,6 +50,7 @@ export class SidebarComponent implements OnInit {
         console.log(value);
         if(value == true) this.toastrService.success("Score set succesfully!");
         else this.toastrService.error("Score was not set, please check teams again");
+        this.reloadPage();
       }
     )
   }
@@ -57,7 +59,9 @@ export class SidebarComponent implements OnInit {
   {
     if(confirm('Do you really want to delete this game?'))
     {
-     this.customHttp.delete('/deleteGame' + "?gameId=" + gameId).subscribe();
+     this.customHttp.delete('/deleteGame' + "?gameId=" + gameId).subscribe((value : any) => {
+      this.reloadPage();
+     });
     }
     else
     {

@@ -18,7 +18,7 @@
                 <label for="guestTeam" style="color: white">Second team name</label><br>
                 <input type="text" [(ngModel)]="guestTeam" name="guestTeam" placeholder="Insert second team name..."><br>
         
-                <input type="submit" (click)="addGame(); reloadPage();" routerLink="/admin"  value="Set game"><br><br>
+                <input type="submit" (click)="addGame()" routerLink="/admin"  value="Set game"><br><br>
             </form>
     </div>
 
@@ -39,7 +39,7 @@
                             <th scope="row">{{g.homeTeam}}</th>
                             <th scope="row">{{g.guestTeam}}</th>
                             <th scope="row">{{g.homeScore}}-{{g.guestScore}}</th>
-                            <button type="button" class="close" (click)="deleteGame(g.gameId); reloadPage();" aria-label="Close">
+                            <button type="button" class="close" (click)="deleteGame(g.gameId)" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
                         </tr>
@@ -62,7 +62,7 @@
                     <label for="score" style="color: white">Home Score</label>
                     <input type="text" [(ngModel)]="guestScore" name="guestScore" placeholder="Insert score...."><br>
             
-                    <input type="submit" routerLink="/admin" (click)="setScore(); reloadPage();" value="Set score"><br>
+                    <input type="submit" routerLink="/admin" (click)="setScore()" value="Set score"><br>
             </form>
     </div>
 </div>
