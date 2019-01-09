@@ -44,6 +44,10 @@ form {
   .row1 {
       margin-top: 50px;
   }
+
+  th{
+    text-align: center;
+  }
   
   /* Clear floats after the columns */
   .row1:after {

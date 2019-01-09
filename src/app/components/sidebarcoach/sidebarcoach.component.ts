@@ -4,6 +4,7 @@ import { SharingService } from 'src/app/services/sharing.service';
 import { User } from 'src/app/models/user';
 import { Player } from '@angular/core/src/render3/interfaces/player';
 import { HttpHeaders } from '@angular/common/http';
+import { Game } from 'src/app/models/game';
 
 @Component({
   selector: 'app-sidebarcoach',
@@ -19,21 +20,31 @@ export class SidebarcoachComponent implements OnInit {
   playerNumber : number;
   loggedUser : User;
   players : Player[];
+  games : Game[];
 
   ngOnInit() {
     this.getUserName();
-    this.getPlayers();
   }
 
   getUserName(){
     this.customHttp.get('/getName').subscribe((value : any) => {
       this.loggedUser = value;
+      this.getPlayers();
+      this.getTeamGames();
     });
   }
 
   getPlayers(){
-    this.customHttp.get('/players').subscribe((value : any) => {
+    this.customHttp.post('/teamPlayers', {teamName : this.loggedUser.teamname}).subscribe((value : any) => {
       this.players = value;
+      
+    })
+  }
+
+  getTeamGames()
+  {
+    this.customHttp.post('/teamGames', {guestTeam: this.loggedUser.teamname, homeTeam: this.loggedUser.teamname}).subscribe((value : any) => {
+      this.games = value;
     })
   }
 
@@ -41,13 +52,20 @@ export class SidebarcoachComponent implements OnInit {
   {
     this.customHttp.post('/addPlayer', {playerName : this.playerName, playerNumber : this.playerNumber, teamName: this.loggedUser.teamname}).subscribe(
       (value : any)  => {
-        console.log(value);
+        this.reloadPage();
       }
     )
   }
 
   reloadPage(){
     window.location.reload();
+  }
+
+  logOut()
+  {
+    localStorage.clear();
+    this.players = [];
+    this.loggedUser = null;
   }
 
 }

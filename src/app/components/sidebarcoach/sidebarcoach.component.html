@@ -1,7 +1,7 @@
 <div class="adminoptions" style="text-align: center; margin-top:20px; padding:20px; color:white;">
     <h5>Hello coach {{loggedUser.name}}</h5>
     <h6>Your team is : {{loggedUser.teamname}}</h6>
-    <button type="button" class="btn btn-secondary" routerLink="" style="float:right; margin-top:0px;">Logout</button>
+    <button type="button" class="btn btn-secondary" routerLink="/" (click)="logOut()" style="float:right; margin-top:0px;">Logout</button>
 </div>
 
 <div class="row2">
@@ -14,7 +14,7 @@
                 <label for="playerNumber" style="color:white;">Player number</label><br>
                 <input type="number" [(ngModel)]="playerNumber" name="playerNumber" id="playerNumber" ><br>
         
-                <input type="submit" routerLink="/coach" (click)="insertPlayerToTeam(); reloadPage();" value="Add player"><br><br>
+                <input type="submit" routerLink="/coach" (click)="insertPlayerToTeam()" value="Add player"><br><br>
             </form>
     </div>
 
@@ -48,6 +48,7 @@
                         <tr>
                             <th scope="col">Index</th>
                             <th scope="col">Player Name</th>
+                            <th scope="col">Player Number</th>
                         </tr>
                     
                     </thead>
@@ -55,6 +56,7 @@
                         <tr>
                             <th scope="row">1</th>
                             <th scope="row">{{player.playerName}}</th>
+                            <th scope="row">{{player.playerNumber}}</th>
                         </tr>
                         
                     </tbody>
@@ -69,19 +71,16 @@
                             <th scope="col">Index</th>
                             <th scope="col">Home Team</th>
                             <th scope="col">Guest Team</th>
+                            <th scope="col">Score</th>
                         </tr>
                     
                     </thead>
-                    <tbody>
+                    <tbody *ngFor="let g of games">
                         <tr>
                             <th scope="row">1</th>
-                            <th scope="row">AS FLACARA FAGET</th>
-                            <th scope="row">FC DUDESTII NOI</th>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <th scope="row">FC ARSENAL PLOIEST</th>
-                            <th scope="row">AS FLACARA FAGET</th>
+                            <th scope="row">{{g.homeTeam}}</th>
+                            <th scope="row">{{g.guestTeam}}</th>
+                            <th scope="row">{{g.homeScore}}-{{g.guestScore}}</th>
                         </tr>
                     </tbody>
                 </table>
