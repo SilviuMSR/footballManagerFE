@@ -53,6 +53,10 @@ form {
     clear: both;
   }
 
+  th{
+    text-align: center;
+  }
+
   .container-fluid {
     background: 
       linear-gradient(

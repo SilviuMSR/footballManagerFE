@@ -5,6 +5,7 @@ import { User } from 'src/app/models/user';
 import { Player } from '@angular/core/src/render3/interfaces/player';
 import { HttpHeaders } from '@angular/common/http';
 import { Game } from 'src/app/models/game';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-sidebarcoach',
@@ -13,7 +14,8 @@ import { Game } from 'src/app/models/game';
 })
 export class SidebarcoachComponent implements OnInit {
 
-  constructor(private customHttp: CustomHttpService) { }
+  constructor(private customHttp: CustomHttpService,
+    private toastrService : ToastrService) { }
 
   playerName : string;
   teamName : string;
@@ -21,7 +23,6 @@ export class SidebarcoachComponent implements OnInit {
   loggedUser : User;
   players : Player[];
   games : Game[];
-
  
   ngOnInit() {
     this.getUserName();
@@ -53,6 +54,8 @@ export class SidebarcoachComponent implements OnInit {
   {
     this.customHttp.post('/addPlayer', {playerName : this.playerName, playerNumber : this.playerNumber, teamName: this.loggedUser.teamname}).subscribe(
       (value : any)  => {
+        if(value == true) this.toastrService.success("Player added succesfully!");
+        else this.toastrService.error("Player was not added to team, please try again!");
         this.reloadPage();
       }
     )
@@ -63,12 +66,15 @@ export class SidebarcoachComponent implements OnInit {
       if(confirm('Do you really want to delete this player?'))
       {
        this.customHttp.delete('/deletePlayer' + "?playerId=" + playerId).subscribe((value : any) => {
+        if(value != 0) this.toastrService.success("Player deleted succesfully!");
+        else this.toastrService.error("Player was not deleted!");
         this.reloadPage();
        });
       }
       else
       {
-        
+        this.toastrService.error("Player was not deleted!");
+        this.reloadPage();
       }
   }
 

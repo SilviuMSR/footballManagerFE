@@ -7,9 +7,9 @@
             </tr>
         
         </thead>
-        <tbody *ngFor="let team of allteams">
+        <tbody *ngFor="let team of allteams; let rowIndex=index">
             <tr>
-                <th scope="row">{{team.id}}</th>
+                <th scope="row">{{rowIndex+1}}</th>
                 <th scope="row">{{team.teamName}}</th>
                 <th scope="row">{{team.teamPoints}}</th>
             </tr>

@@ -30,9 +30,9 @@
                         </tr>
                     
                     </thead>
-                    <tbody *ngFor="let player of players">
+                    <tbody *ngFor="let player of players; let rowIndex=index">
                         <tr>
-                            <th scope="row">1</th>
+                            <th scope="row">{{rowIndex+1}}</th>
                             <th scope="row">{{player.playerName}}</th>
                             <th scope="row">{{player.playerNumber}}</th>
                             <button type="button" class="close" (click)="deletePlayerFromTeam(player.playerId)" aria-label="Close">
@@ -81,9 +81,9 @@
                         </tr>
                     
                     </thead>
-                    <tbody *ngFor="let g of games">
+                    <tbody *ngFor="let g of games; let rowIndex=index">
                         <tr>
-                            <th scope="row">1</th>
+                            <th scope="row">{{rowIndex+1}}</th>
                             <th scope="row">{{g.homeTeam}}</th>
                             <th scope="row">{{g.guestTeam}}</th>
                             <th scope="row">{{g.homeScore}}-{{g.guestScore}}</th>

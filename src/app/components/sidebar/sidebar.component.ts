@@ -22,7 +22,6 @@ export class SidebarComponent implements OnInit {
   gt : string;
   homeScore : number;
   guestScore : number;
-  index : number = 1;
   
 
   ngOnInit() {
@@ -61,6 +60,8 @@ export class SidebarComponent implements OnInit {
     if(confirm('Do you really want to delete this game?'))
     {
      this.customHttp.delete('/deleteGame' + "?gameId=" + gameId).subscribe((value : any) => {
+      if(value != 0) this.toastrService.success("Game deleted successfully!");
+      else this.toastrService.error("Game was not deleted!");
       this.reloadPage();
      });
     }
