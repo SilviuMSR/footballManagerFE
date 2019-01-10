@@ -49,6 +49,7 @@ form {
   .row:after {
     content: "";
     display: table;
+    justify-content: center;
     clear: both;
   }
 

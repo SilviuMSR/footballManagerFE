@@ -22,6 +22,7 @@ export class SidebarcoachComponent implements OnInit {
   players : Player[];
   games : Game[];
 
+ 
   ngOnInit() {
     this.getUserName();
   }
@@ -55,6 +56,20 @@ export class SidebarcoachComponent implements OnInit {
         this.reloadPage();
       }
     )
+  }
+
+  deletePlayerFromTeam(playerId : number) 
+  {
+      if(confirm('Do you really want to delete this player?'))
+      {
+       this.customHttp.delete('/deletePlayer' + "?playerId=" + playerId).subscribe((value : any) => {
+        this.reloadPage();
+       });
+      }
+      else
+      {
+        
+      }
   }
 
   reloadPage(){

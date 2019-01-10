@@ -7,7 +7,7 @@
 <div class="row2">
     <div class="column2">
             <h5 style="text-align: center; color: white;">->Insert player<-</h5>
-            <form style="float:left;">
+            <form>
                 <label for="playerName" style="color:white;">Player name</label><br>
                 <input type="text" [(ngModel)]="playerName" name="playerName" id="playerName"><br> 
         
@@ -19,29 +19,6 @@
     </div>
 
     <div class="column2">
-            <h5 style="color: white; text-align: center;">->Insert player to game<-</h5>
-            <form style="float:left;">
-                <label for="fname" style="color: white">First team name</label><br>
-                <input type="text" id="fname"><br> 
-        
-                <label for="sname" style="color: white">Second team name</label><br>
-                <input type="text" id="sname"><br>
-
-                <label for="pname" style="color: white">Player name</label><br>
-                <input type="text" id="pname"><br>
-        
-                <input type="submit" routerLink="/" value="Add player to game"><br><br>
-            </form>
-    </div>
-</div>
-
-<div class="row1">
-    <div class="column">
-        <h5 style="text-align: center; color:white;">->Ranking<-</h5>
-         <app-coach></app-coach>
-    </div>
-        
-    <div class="column">
             <h5 style="text-align: center; color:white;">->Current available players<-</h5>
             <br><table class="table" style="color: white">
                     <thead class="table-dark">
@@ -49,6 +26,7 @@
                             <th scope="col">Index</th>
                             <th scope="col">Player Name</th>
                             <th scope="col">Player Number</th>
+                            <th scope="col"></th>
                         </tr>
                     
                     </thead>
@@ -57,10 +35,38 @@
                             <th scope="row">1</th>
                             <th scope="row">{{player.playerName}}</th>
                             <th scope="row">{{player.playerNumber}}</th>
+                            <button type="button" class="close" (click)="deletePlayerFromTeam(player.playerId)" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            
                         </tr>
                         
                     </tbody>
                 </table>
+    </div>
+
+    <!--<div class="column2">
+            <h5 style="color: white; text-align: center;">->Insert player to game<-</h5>
+            <form style="float:left;">
+                <label for="fname" style="color: white">First team name</label><br>
+                <input type="text" [(ngModel)]="ht" name="ht" id="ht"><br> 
+        
+                <label for="sname" style="color: white">Second team name</label><br>
+                <input type="text" [(ngModel)]="gt" name="gt" id="gt"><br>
+
+                <label for="pname" style="color: white">Player name</label><br>
+                <input type="text" [(ngModel)]="pn" name="pn" id="pn"><br>
+        
+                <input type="submit" routerLink="/coach" (click)="insertPToGame()" value="Add player to game"><br><br>
+            </form>
+    </div>
+    -->
+</div>
+
+<div class="row1">
+    <div class="column">
+        <h5 style="text-align: center; color:white;">->Ranking<-</h5>
+         <app-coach></app-coach>
     </div>
         
     <div class="column">

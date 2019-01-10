@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class CustomHttpService {
 
-  private URL = 'http://localhost:8080/api';
+  private URL = 'https://ssdappproject.herokuapp.com/api';
 
   constructor(private httpClient: HttpClient) { }
 

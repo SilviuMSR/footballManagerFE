@@ -22,6 +22,7 @@ export class SidebarComponent implements OnInit {
   gt : string;
   homeScore : number;
   guestScore : number;
+  index : number = 1;
   
 
   ngOnInit() {

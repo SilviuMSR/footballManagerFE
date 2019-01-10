@@ -23,12 +23,12 @@ input[type=submit]:hover {
     background-color: #2d2f2d;
 }
 
-form {
-    margin-top: 30px;
-    padding-left: 350px;
+form{
+    display: table;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
 }
-
-
 
 * {
     box-sizing: border-box;
@@ -37,7 +37,7 @@ form {
   /* Create three equal columns that floats next to each other */
   .column {
     float: left;
-    width: 33.3%;
+    width: 50%;
     padding: 10px;
   }
 
@@ -70,4 +70,9 @@ form {
       content: "";
       display: table;
       clear: both;
+  }
+
+  .close {
+    color: white;
+    
   }

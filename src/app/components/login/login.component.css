@@ -31,18 +31,19 @@ input[type=submit]:hover {
 }
 
 .title h3{
-    margin-right: 300px;
-    margin-top: 100px;
-    text-align: center;
+    display: table;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top:200px;
     color: white;
 }
 
 form {
-    margin-top: 100px;
-    margin-right: 300px;
-    padding-left: 400px;
-    padding-right: 400px;
-    position: relative;
+    display: table;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
 }
 
 

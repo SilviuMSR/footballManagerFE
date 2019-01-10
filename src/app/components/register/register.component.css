@@ -23,25 +23,27 @@ input[type=submit]:hover {
     background-color: #2d2f2d;
 }
 
-.title h3{
-    margin-right: 300px;
-    margin-top: 100px;
-    text-align: center;
-    color: white;
-}
-
-form {
-    margin-top: 100px;
-    margin-right: 300px;
-    padding-left: 400px;
-    padding-right: 400px;
-}
-
 .options {
     width: 100%;
     text-align: center;
     padding: 14px 20px;
     
+}
+
+.title h3{
+    display: table;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top:200px;
+    color: white;
+}
+
+form {
+    display: table;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
 }
 
 
